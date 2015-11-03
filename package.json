@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib",
   "scripts": {
-    "test": "eslint **/*.js && istanbul cover _mocha"
+    "test": "eslint **/*.js && istanbul cover ./node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
