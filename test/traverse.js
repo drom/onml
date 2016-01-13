@@ -173,6 +173,32 @@ describe('#traverse', function () {
         done();
     });
 
+    it('add wood', function (done) {
+        traverse(data, {
+            leave: function (node) {
+                var i;
+                if (node.name === 'brick') {
+                    for (i = 0; i < 5; i++) {
+                        node.full.push(['wood']);
+                    }
+                }
+            }
+        });
+        expect(data).to.deep.equal(
+            ['b',
+                ['brick', {a: true},
+                    ['wood'],
+                    ['wood'],
+                    ['wood'],
+                    ['wood'],
+                    ['wood'],
+                    ['wood']
+                ]
+            ]
+        );
+        done();
+    });
+
     it('remove wood', function (done) {
         traverse(data, {
             leave: function (node) {
