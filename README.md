@@ -43,6 +43,29 @@ console.log(str);
 JSONML object traversal tool. See [test/traverse.js](test/traverse.js) for more details.
 
 ```js
+onml.traverse(obj, {
+    enter: function (node, parent) {
+        ...
+    },
+    leave: function (node, parent) {
+        ...
+    }
+});
+```
+Inside `enter` and `leave` functions:
+
+`node` and `parent` objects have the following attributes:
+  * `.name` -- tag name
+  * `.attr` -- attributes object
+  * `.full` -- full node array
+
+`this` will hold additional methods:
+  * `this.name(string)` -- to change the node tag
+  * `this.skip()` -- to skip subtree based on the current node
+  * `this.remove()` -- to remove current node
+  * `this.replace(array)` -- to replace current node
+
+```js
 // count divs on enter
 var count = 0;
 onml.traverse(
