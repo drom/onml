@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/drom/onml#readme",
   "devDependencies": {
-    "chai": "^3.4.0",
-    "eslint": "^1.7.3",
-    "istanbul": "^0.4.0",
-    "mocha": "^2.3.3"
+    "chai": "^3.5.0",
+    "eslint": "^2.1.0",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5"
   },
   "dependencies": {
-    "sax": "^1.1.4"
+    "sax": "^1.1.5"
   }
 }
