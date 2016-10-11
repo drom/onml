@@ -31,7 +31,7 @@ console.log(obj);
 The `onml.stringify()` method converts a JavaScript value to a XML/HTML/SVG string.
 
 ```js
-var str = onml.stringify(['text', {a: '55'}, 'so me']);
+var str = onml.stringify(['text', {a: 55}, 'so me']);
 console.log(str);
 -->
 <text a="55">
