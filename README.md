@@ -21,7 +21,7 @@ var onml = require('onml');
 The `onml.parse()` method parses a XML/HTML/SVG string and returns a JavaScript value.
 
 ```js
-var obj = onml.parse('<text a="5">so me<text>');
+var obj = onml.parse('<text a="5">so me</text>');
 console.log(obj);
 -->
 ["text", {a: "5"}, "so me"]
