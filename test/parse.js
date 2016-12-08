@@ -10,6 +10,12 @@ describe('parse', function () {
         expect(lib.parse(str)).to.deep.equal(val);
         done();
     });
+    it('cdata', function (done) {
+        var val = ['style', { type: 'text/css'}, '<![CDATA[rect {fill: red } ]]>'];
+        var str = '<style type="text/css"><![CDATA[rect {fill: red } ]]></style>';
+        expect(lib.parse(str)).to.deep.equal(val);
+        done();
+    });
 });
 
 /* eslint-env mocha */
