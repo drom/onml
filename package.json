@@ -5,7 +5,7 @@
   "main": "lib",
   "scripts": {
     "test": "eslint lib/*.js && istanbul cover ./node_modules/mocha/bin/_mocha",
-    "browserify": "browserify --standalone tspan lib/index.js > build/tspan.js",
+    "browserify": "browserify --standalone tspan lib/index.js > build/onml.js",
     "prepublish": "npm run test && mkdir -p build && npm run browserify"
   },
   "files": [
