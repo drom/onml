@@ -4,8 +4,14 @@
   "description": "",
   "main": "lib",
   "scripts": {
-    "test": "eslint **/*.js && istanbul cover ./node_modules/mocha/bin/_mocha"
+    "test": "eslint lib/*.js && istanbul cover ./node_modules/mocha/bin/_mocha",
+    "browserify": "browserify --standalone tspan lib/index.js > build/tspan.js",
+    "prepublish": "npm run test && mkdir -p build && npm run browserify"
   },
+  "files": [
+    "build/onml.js"
+  ],
+  "unpkg": "build/onml.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/drom/onml.git"
@@ -23,6 +29,7 @@
   },
   "homepage": "https://github.com/drom/onml#readme",
   "devDependencies": {
+    "browserify": "^16.2.2",
     "chai": "^3.5.0",
     "eslint": "^2.11.1",
     "istanbul": "^0.4.3",
