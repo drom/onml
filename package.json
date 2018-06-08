@@ -9,7 +9,8 @@
     "prepublish": "npm run test && mkdir -p build && npm run browserify"
   },
   "files": [
-    "build/onml.js"
+    "build/onml.js",
+    "lib/*"
   ],
   "unpkg": "build/onml.js",
   "repository": {
