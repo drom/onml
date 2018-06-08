@@ -30,13 +30,20 @@
   },
   "homepage": "https://github.com/drom/onml#readme",
   "devDependencies": {
+    "@drom/eslint-config": "^0.7.0",
     "browserify": "^16.2.2",
-    "chai": "^3.5.0",
-    "eslint": "^2.11.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
     "istanbul": "^0.4.3",
-    "mocha": "^2.5.3"
+    "mocha": "^5.2.0"
   },
   "dependencies": {
     "sax": "^1.2.1"
+  },
+  "eslintConfig": {
+    "extends": "@drom/eslint-config/eslint4/node4",
+    "rules": {
+      "no-console": 1
+    }
   }
 }
