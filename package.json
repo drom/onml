@@ -1,11 +1,11 @@
 {
   "name": "onml",
   "version": "0.4.4",
-  "description": "",
+  "description": "JSONML Library",
   "main": "lib",
   "scripts": {
     "test": "eslint lib/*.js && istanbul cover ./node_modules/mocha/bin/_mocha",
-    "browserify": "browserify --standalone tspan lib/index.js > build/onml.js",
+    "browserify": "browserify --standalone onml lib/index.js > build/onml.js",
     "prepublish": "npm run test && mkdir -p build && npm run browserify"
   },
   "files": [
@@ -23,7 +23,7 @@
     "html",
     "svg"
   ],
-  "author": "drom@drom.io",
+  "author": "Aliaksei Chapyzhenka",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/drom/onml/issues"
