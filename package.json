@@ -4,7 +4,7 @@
   "description": "JSONML Library",
   "main": "lib",
   "scripts": {
-    "test": "eslint lib/*.js && istanbul cover ./node_modules/mocha/bin/_mocha",
+    "test": "eslint lib/*.js && nyc mocha",
     "browserify": "browserify --standalone onml lib/index.js > build/onml.js",
     "prepublish": "npm run test && mkdir -p build && npm run browserify"
   },
@@ -30,12 +30,12 @@
   },
   "homepage": "https://github.com/drom/onml#readme",
   "devDependencies": {
-    "@drom/eslint-config": "^0.7.0",
+    "@drom/eslint-config": "^0.9.0",
     "browserify": "^16.2.2",
     "chai": "^4.1.2",
     "eslint": "^4.19.1",
-    "istanbul": "^0.4.3",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nyc": "^11.0.0"
   },
   "dependencies": {
     "sax": "^1.2.1"
