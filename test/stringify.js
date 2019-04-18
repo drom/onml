@@ -28,7 +28,7 @@ describe('stringify', function () {
         it(name, function (done) {
             var src = dat[name].src;
             var dst = dat[name].dst;
-            expect(lib.stringify(src)).to.be.equal(dst);
+            expect(lib.stringify(src, 2)).to.be.equal(dst);
             done();
         });
     });

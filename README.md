@@ -29,10 +29,10 @@ console.log(obj);
 ```
 
 ### onml.stringify() --- onml.s()
-The `onml.stringify()` method converts a JavaScript value to a XML/HTML/SVG string.
+The `onml.stringify(array, [indentation])` method converts a JavaScript value to a XML/HTML/SVG string.
 
 ```js
-var str = onml.stringify(['text', {a: 55}, 'so me']);
+var str = onml.stringify(['text', {a: 55}, 'so me'], 2);
 console.log(str);
 -->
 <text a="55">
