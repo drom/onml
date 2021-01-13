@@ -43,11 +43,7 @@
   "eslintConfig": {
     "extends": "@drom/eslint-config/eslint4/node8",
     "rules": {
-      "no-console": 1,
-      "indent": [
-        1,
-        4
-      ]
+      "no-console": 1
     }
   }
 }
