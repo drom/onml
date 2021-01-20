@@ -1,7 +1,7 @@
 'use strict';
 
 const chai = require('chai');
-const lib = require('../lib');
+const lib = require('../');
 
 const dat = {
   t0: {

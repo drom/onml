@@ -1,6 +1,6 @@
 'use strict';
 
-const traverse = require('../lib/traverse');
+const traverse = require('../traverse.js');
 const chai = require('chai');
 
 describe('#traverse', () => {
