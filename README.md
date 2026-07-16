@@ -16,15 +16,36 @@ npm i onml --save
 var onml = require('onml');
 ```
 
+### Browser
+Via [unpkg](https://unpkg.com/onml):
+
+```html
+<script src="https://unpkg.com/onml"></script>
+<script>
+  // library exposed as the global `onml`
+  var str = onml.stringify(['text', {a: 55}, 'so me']);
+</script>
+```
+
 ## API
 ### onml.parse() --- onml.p()
-The `onml.parse()` method parses a XML/HTML/SVG string and returns a JavaScript value.
+The `onml.parse(data, [config])` method parses a XML/HTML/SVG string and returns a JavaScript value.
 
 ```js
 var obj = onml.parse('<text a="5">so me</text>');
 console.log(obj);
 -->
 ["text", {a: "5"}, "so me"]
+```
+
+The optional `config` object accepts:
+  * `strict` (default `true`) -- parse in [sax](https://www.npmjs.com/package/sax) strict mode; set `false` for lenient HTML.
+  * `trim` (default `true`) -- drop whitespace-only text nodes; set `false` to keep them.
+
+```js
+onml.parse('<p>  keep  </p>', {trim: false});
+-->
+["p", {}, "  keep  "]
 ```
 
 ### onml.stringify() --- onml.s()
@@ -95,6 +116,37 @@ onml.traverse(
 console.log(count);
 -->
 6
+```
+
+### onml.renderer()
+Browser helper. `onml.renderer(target)` takes a DOM element or an element `id` string and returns a render function. Calling that function with a JSONML value stringifies it and writes the result into the target's `innerHTML`.
+
+```js
+var render = onml.renderer('root'); // or onml.renderer(document.body)
+render(['h1', 'Hello']);            // <h1>Hello</h1> injected into #root
+```
+
+### onml.tt()
+SVG attribute helper. `onml.tt(x, y, [obj])` returns an attributes object with a `transform: translate(x, y)` and merges any extra attributes from `obj`. Omit `y` for a single-axis translate; when both `x` and `y` are falsy no transform is added.
+
+```js
+onml.tt(10, 20, {fill: 'red'});
+-->
+{transform: "translate(10,20)", fill: "red"}
+```
+
+### onml.gen.svg()
+Generates a root `svg` JSONML node with the standard namespaces and a `viewBox`. `onml.gen.svg(width, height)`.
+
+```js
+onml.gen.svg(100, 50);
+-->
+["svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "xmlns:xlink": "http://www.w3.org/1999/xlink",
+  width: 100, height: 50,
+  viewBox: "0 0 100 50"
+}]
 ```
 
 ## Testing

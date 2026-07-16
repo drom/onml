@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint *.js && nyc mocha",
-    "browserify": "browserify --standalone onml index.js > build/onml.js",
-    "prepublish": "npm run test && mkdir -p build && npm run browserify"
+    "bundle": "esbuild index.js --bundle --format=iife --global-name=onml --external:stream --outfile=build/onml.js",
+    "prepublish": "npm run test && mkdir -p build && npm run bundle"
   },
   "files": [
     "build/onml.js",
@@ -30,20 +30,14 @@
   },
   "homepage": "https://github.com/drom/onml#readme",
   "devDependencies": {
-    "@drom/eslint-config": "^0.10.0",
-    "browserify": "^17",
+    "@drom/eslint-config": "^1.0.0",
     "chai": "^4.3",
-    "eslint": "^8.31",
+    "esbuild": "^0.25",
+    "eslint": "^9",
     "mocha": "^10.2",
     "nyc": "^15.0.0"
   },
   "dependencies": {
     "sax": "^1.2.1"
-  },
-  "eslintConfig": {
-    "extends": "@drom/eslint-config/eslint4/node8",
-    "rules": {
-      "no-console": 1
-    }
   }
 }

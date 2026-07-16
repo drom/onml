@@ -13,11 +13,9 @@ const renderer = root => {
       str = stringify(ml);
       content.innerHTML = str;
     } catch (err) {
-      console.log(ml);
+      console.log(ml, err);
     }
   };
 };
 
 module.exports = renderer;
-
-/* eslint-env browser */
