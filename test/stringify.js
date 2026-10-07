@@ -20,6 +20,10 @@ const dat = {
       ]
     ],
     dst: '<A>\n  aaa\n  <B>\n    <C>true</C>\n    777\n    <D>\n      <E/>\n    </D>\n  </B>\n</A>\n'
+  },
+  t2: {
+    src: ['div', {class: 'bar'}, null, 'hello', false, undefined, ['span', 0]],
+    dst: '<div class="bar">\n  hello\n  <span>0</span>\n</div>\n'
   }
 };
 

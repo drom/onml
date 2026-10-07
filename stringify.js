@@ -63,6 +63,10 @@ function stringify (a, indentation) {
         res += '>';
       }
 
+      if (!e && e !== 0 && e !== '') {
+        return;
+      }
+
       switch (typeof e) {
       case 'string':
       case 'number':
