@@ -4,8 +4,8 @@
   "description": "JSONML Library",
   "main": "index.js",
   "scripts": {
-    "test": "eslint *.js && nyc mocha",
-    "bundle": "esbuild index.js --bundle --format=iife --global-name=onml --external:stream --outfile=build/onml.js",
+    "test": "npm run bundle && eslint *.js && nyc mocha",
+    "bundle": "esbuild index.js --bundle --format=iife --global-name=onml --external:stream --footer:js=\"(function(r){if(typeof define=='function'&&define.amd){define([],()=>onml)}else if(typeof module=='object'&&module.exports){module.exports=onml}else{r.onml=onml}})(typeof self!=='undefined'?self:this);\" --outfile=build/onml.js",
     "prepublish": "npm run test && mkdir -p build && npm run bundle"
   },
   "files": [
