@@ -41,11 +41,17 @@ console.log(obj);
 The optional `config` object accepts:
   * `strict` (default `true`) -- parse in [sax](https://www.npmjs.com/package/sax) strict mode; set `false` for lenient HTML.
   * `trim` (default `true`) -- drop whitespace-only text nodes; set `false` to keep them.
+  * `loc` (default `false`) -- record element source locations (`{start, end}` with 1-based `line`/`column` and 0-based `offset`) in a `WeakMap` side-table without mutating JSONML nodes. Pass `true` to query via `onml.loc(node)`, or pass a custom `WeakMap` / `Map`.
 
 ```js
 onml.parse('<p>  keep  </p>', {trim: false});
 -->
 ["p", {}, "  keep  "]
+
+var doc = onml.parse('<a>\n  <b/>\n</a>', {loc: true});
+onml.loc(doc[2]);
+-->
+{start: {line: 2, column: 3, offset: 6}, end: {line: 2, column: 7, offset: 10}}
 ```
 
 ### onml.stringify() --- onml.s()

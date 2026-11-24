@@ -9,6 +9,7 @@ const genSvg = require('./gen-svg.js');
 
 exports.renderer = renderer;
 exports.parse = parse;
+exports.loc = parse.loc;
 exports.stringify = stringify;
 exports.traverse = traverse;
 exports.tt = tt;
